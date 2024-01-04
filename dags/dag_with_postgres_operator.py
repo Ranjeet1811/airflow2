@@ -75,7 +75,7 @@ def booking_ingestion():
         # remove unnecessary columns
         data = data.drop(['address'], axis=1)
 
-        data.to_csv("/opt/airflow/dags/repo/dags/processed_data/processed_data.csv", index=False)
+        # data.to_csv("/opt/airflow/dags/repo/dags/processed_data/processed_data.csv", index=False)
 
     @task
     def create_table():
