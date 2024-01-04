@@ -39,7 +39,7 @@ conn = postgres_hook.get_conn()
 cursor = conn.cursor()
 
 @dag(
-    dag_id = 'booking_ingestion',
+    dag_id = 'booking_ingestion_v1',
     default_args=default_args,
     start_date = datetime(2024,1,2),
     schedule_interval = '@daily',
