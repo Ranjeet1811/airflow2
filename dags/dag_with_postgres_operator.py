@@ -121,7 +121,7 @@ def booking_ingestion():
         return "Succesfully inserted data to booking_record table"
 
     # transoformm_data = transform_data() 
-    transform_data>>create_table>>load_data>>print_success_msg
+    transform_data() >> create_table() >> load_data() >> print_success_msg()
    
 booking_ingestion()
 
