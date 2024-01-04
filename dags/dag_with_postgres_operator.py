@@ -35,9 +35,10 @@ cursor = conn.cursor()
 def booking_ingestion():
     @task
     def transform_data():
-        booking = pd.read_csv("/raw_data/booking.csv", low_memory=False)
-        client = pd.read_csv("/raw_data/client.csv", low_memory=False)
-        hotel = pd.read_csv("/raw_data/hotel.csv", low_memory=False)
+        booking = pd.read_csv("/dags/raw_data/booking.csv", low_memory=False)
+        client = pd.read_csv("/dags/raw_data/client.csv", low_memory=False)
+        hotel = pd.read_csv("/dags/raw_data/hotel.csv", low_memory=False)
+        print(hotel)
 
         # merge booking with client
         data = pd.merge(booking, client, on='client_id')
@@ -57,7 +58,7 @@ def booking_ingestion():
         # remove unnecessary columns
         data = data.drop(['address'], axis=1)
 
-        data.to_csv("/processed_data/processed_data.csv", index=False)
+        data.to_csv("/dags/processed_data/processed_data.csv", index=False)
 
     @task
     def create_table():
@@ -81,7 +82,7 @@ def booking_ingestion():
 
     @task
     def load_data():
-        data = pd.read_csv("/processed_data/processed_data.csv")
+        data = pd.read_csv("/dags/processed_data/processed_data.csv")
         # Inserting data into the table
         for index,row in data.iterrows():
             row_dict = row.to_dict()
@@ -104,3 +105,4 @@ def booking_ingestion():
     transform_data() >> create_table() >> load_data() >> print_success_msg() 
 
 booking_ingestion()
+
