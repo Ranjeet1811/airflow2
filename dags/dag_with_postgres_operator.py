@@ -9,8 +9,20 @@ from datetime import datetime,timedelta
 import pandas as pd
 import os
 
+dag_directory = os.path.dirname(os.path.abspath(__file__))
+
+print(dag_directory)
+
+# Define the relative path to the config.json file inside the booking folder
+booking_path = os.path.join(dag_directory, 'raw_data', 'booking.csv')
+client_path = os.path.join(dag_directory, 'raw_data', 'client.csv')
+hotel_path = os.path.join(dag_directory, 'raw_data', 'hotel.csv')
+processed_path = os.path.join(dag_directory, 'processed_data', 'processed_data.csv')
+# print(config_path)
+
+
 # get dag directory path
-dag_path = os.getcwd()
+# dag_path = os.getcwd()
 
 # initializing the default arguments that we'll pass to our DAG
 default_args = {
@@ -35,10 +47,10 @@ cursor = conn.cursor()
 def booking_ingestion():
     @task
     def transform_data():
-        booking = pd.read_csv("f{dag_path}/raw_data/booking.csv", low_memory=False)
-        client = pd.read_csv("f{dag_path}/raw_data/client.csv", low_memory=False)
-        hotel = pd.read_csv("f{dag_path}/raw_data/hotel.csv", low_memory=False)
-        print(hotel)
+        booking = pd.read_csv(booking_path, low_memory=False)
+        client = pd.read_csv(client_path, low_memory=False)        
+        hotel = pd.read_csv(hotel_path, low_memory=False)
+    
 
         # merge booking with client
         data = pd.merge(booking, client, on='client_id')
@@ -58,7 +70,7 @@ def booking_ingestion():
         # remove unnecessary columns
         data = data.drop(['address'], axis=1)
 
-        data.to_csv("f{dag_path}/processed_data/processed_data.csv", index=False)
+        data.to_csv(processed_path, index=False)
 
     @task
     def create_table():
@@ -82,7 +94,8 @@ def booking_ingestion():
 
     @task
     def load_data():
-        data = pd.read_csv("f{dag_path}/processed_data/processed_data.csv")
+        # data = pd.read_csv("f{dag_path}/processed_data/processed_data.csv")
+        data = pd.read_csv(processed_path)
         # Inserting data into the table
         for index,row in data.iterrows():
             row_dict = row.to_dict()
