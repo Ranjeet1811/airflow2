@@ -9,16 +9,18 @@ from datetime import datetime,timedelta
 import pandas as pd
 import os
 
-dag_directory = os.path.dirname(os.path.abspath(__file__))
+# dag_directory = os.path.dirname(os.path.abspath(__file__))
 
-print(dag_directory)
+# print(dag_directory)
 
 # Define the relative path to the config.json file inside the booking folder
-booking_path = os.path.join(dag_directory, 'raw_data', 'booking.csv')
-client_path = os.path.join(dag_directory, 'raw_data', 'client.csv')
-hotel_path = os.path.join(dag_directory, 'raw_data', 'hotel.csv')
-processed_path = os.path.join(dag_directory, 'processed_data', 'processed_data.csv')
-print(booking_path)
+# booking_path = os.path.join(dag_directory, 'raw_data', 'booking.csv')
+# client_path = os.path.join(dag_directory, 'raw_data', 'client.csv')
+# hotel_path = os.path.join(dag_directory, 'raw_data', 'hotel.csv')
+# processed_path = os.path.join(dag_directory, 'processed_data', 'processed_data.csv')
+# print(booking_path)
+# print(client_path)
+# print(hotel_path)
 
 
 # get dag directory path
@@ -47,9 +49,12 @@ cursor = conn.cursor()
 def booking_ingestion():
     @task
     def transform_data():
-        booking = pd.read_csv(booking_path, low_memory=False)
-        client = pd.read_csv(client_path, low_memory=False)        
-        hotel = pd.read_csv(hotel_path, low_memory=False)
+        booking = pd.read_csv("/opt/airflow/dags/repo/dags/booking.csv", low_memory=False)
+        client = pd.read_csv("/opt/airflow/dags/repo/dags/client.csv", low_memory=False)        
+        hotel = pd.read_csv("/opt/airflow/dags/repo/dags/hotel.csv", low_memory=False)
+        print(booking)
+        print(client)
+        print(hotel)
     
 
         # merge booking with client
@@ -70,7 +75,7 @@ def booking_ingestion():
         # remove unnecessary columns
         data = data.drop(['address'], axis=1)
 
-        data.to_csv(processed_path, index=False)
+        data.to_csv("/opt/airflow/dags/repo/dags/processed_data.csv", index=False)
 
     @task
     def create_table():
@@ -95,7 +100,7 @@ def booking_ingestion():
     @task
     def load_data():
         # data = pd.read_csv("f{dag_path}/processed_data/processed_data.csv")
-        data = pd.read_csv(processed_path)
+        data = pd.read_csv("/opt/airflow/dags/repo/dags/processed_data.csv",low_memory=False)
         # Inserting data into the table
         for index,row in data.iterrows():
             row_dict = row.to_dict()
