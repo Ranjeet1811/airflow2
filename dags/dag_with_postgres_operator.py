@@ -11,14 +11,14 @@ import os
 
 dag_directory = os.path.dirname(os.path.abspath(__file__))
 
-# print(dag_directory)
+print(dag_directory)
 
 # Define the relative path to the config.json file inside the booking folder
 booking_path = os.path.join(dag_directory, 'raw_data', 'booking.csv')
 client_path = os.path.join(dag_directory, 'raw_data', 'client.csv')
 hotel_path = os.path.join(dag_directory, 'raw_data', 'hotel.csv')
 processed_path = os.path.join(dag_directory, 'processed_data', 'processed_data.csv')
-# print(config_path)
+print(booking_path)
 
 
 # get dag directory path
