@@ -74,6 +74,7 @@ def booking_ingestion():
 
         # remove unnecessary columns
         data = data.drop(['address'], axis=1)
+        return data 
 
         # data.to_csv("/opt/airflow/dags/repo/dags/processed_data/processed_data.csv", index=False)
 
@@ -120,7 +121,7 @@ def booking_ingestion():
     def print_success_msg():
         return "Succesfully inserted data to booking_record table"
 
-    transform_data() >> create_table() >> load_data() >> print_success_msg() 
-
+    transoformm_data = transform_data() 
+    create_table(transoformm_data) >> load_data() >> print_success_msg()
 booking_ingestion()
 
