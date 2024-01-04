@@ -35,7 +35,7 @@ cursor = conn.cursor()
 def booking_ingestion():
     @task
     def transform_data():
-        booking = pd.read_csv("raw_data/booking.csv", low_memory=False)
+        booking = pd.read_csv("/raw_data/booking.csv", low_memory=False)
         client = pd.read_csv("/raw_data/client.csv", low_memory=False)
         hotel = pd.read_csv("/raw_data/hotel.csv", low_memory=False)
 
