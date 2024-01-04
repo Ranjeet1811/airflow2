@@ -1,0 +1,27 @@
+[2024-01-03T13:46:28.799+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion_new.create_table scheduled__2024-01-02T00:00:00+00:00 [queued]>
+[2024-01-03T13:46:28.822+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion_new.create_table scheduled__2024-01-02T00:00:00+00:00 [queued]>
+[2024-01-03T13:46:28.823+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-03T13:46:28.873+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-01-02 00:00:00+00:00
+[2024-01-03T13:46:28.881+0000] {standard_task_runner.py:57} INFO - Started process 301 to run task
+[2024-01-03T13:46:28.886+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion_new', 'create_table', 'scheduled__2024-01-02T00:00:00+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator3.py', '--cfg-path', '/tmp/tmp4bcsc53u']
+[2024-01-03T13:46:28.889+0000] {standard_task_runner.py:85} INFO - Job 89: Subtask create_table
+[2024-01-03T13:46:29.006+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion_new.create_table scheduled__2024-01-02T00:00:00+00:00 [running]> on host 1aef81c6d4c5
+[2024-01-03T13:46:29.488+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion_new' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-01-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-02T00:00:00+00:00'
+[2024-01-03T13:46:29.600+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-01-03T13:46:34.048+0000] {python.py:194} INFO - Done. Returned value was: {'status': 'success', 'message': 'Table booking_record created successfully'}
+[2024-01-03T13:46:34.411+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion_new, task_id=create_table, execution_date=20240102T000000, start_date=20240103T134628, end_date=20240103T134634
+[2024-01-03T13:46:34.504+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-03T13:46:34.584+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-01-03T13:58:56.988+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion_new.create_table scheduled__2024-01-02T00:00:00+00:00 [queued]>
+[2024-01-03T13:58:57.019+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion_new.create_table scheduled__2024-01-02T00:00:00+00:00 [queued]>
+[2024-01-03T13:58:57.020+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-03T13:58:57.068+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-01-02 00:00:00+00:00
+[2024-01-03T13:58:57.075+0000] {standard_task_runner.py:57} INFO - Started process 988 to run task
+[2024-01-03T13:58:57.080+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion_new', 'create_table', 'scheduled__2024-01-02T00:00:00+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator3.py', '--cfg-path', '/tmp/tmpddsnbhlt']
+[2024-01-03T13:58:57.083+0000] {standard_task_runner.py:85} INFO - Job 93: Subtask create_table
+[2024-01-03T13:58:57.172+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion_new.create_table scheduled__2024-01-02T00:00:00+00:00 [running]> on host 1aef81c6d4c5
+[2024-01-03T13:58:57.567+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion_new' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-01-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-02T00:00:00+00:00'
+[2024-01-03T13:58:58.393+0000] {python.py:194} INFO - Done. Returned value was: {'status': 'success', 'message': 'Table booking_record created successfully'}
+[2024-01-03T13:58:58.466+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion_new, task_id=create_table, execution_date=20240102T000000, start_date=20240103T135857, end_date=20240103T135858
+[2024-01-03T13:58:58.539+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-03T13:58:58.582+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

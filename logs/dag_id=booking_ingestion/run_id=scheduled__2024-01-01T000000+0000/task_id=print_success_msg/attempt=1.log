@@ -1,0 +1,65 @@
+[2024-01-02T21:32:21.146+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T21:32:21.159+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T21:32:21.160+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-02T21:32:21.216+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): print_success_msg> on 2024-01-01 00:00:00+00:00
+[2024-01-02T21:32:21.228+0000] {standard_task_runner.py:57} INFO - Started process 1843 to run task
+[2024-01-02T21:32:21.234+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'print_success_msg', 'scheduled__2024-01-01T00:00:00+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgress_operator2.py', '--cfg-path', '/tmp/tmpihvzgn22']
+[2024-01-02T21:32:21.243+0000] {standard_task_runner.py:85} INFO - Job 37: Subtask print_success_msg
+[2024-01-02T21:32:21.393+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [running]> on host 2590655a4ba7
+[2024-01-02T21:32:21.578+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion' AIRFLOW_CTX_TASK_ID='print_success_msg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-01T00:00:00+00:00'
+[2024-01-02T21:32:21.582+0000] {python.py:194} INFO - Done. Returned value was: Succesfully inserted data to booking_record table
+[2024-01-02T21:32:22.003+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion, task_id=print_success_msg, execution_date=20240101T000000, start_date=20240102T213221, end_date=20240102T213222
+[2024-01-02T21:32:22.095+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-02T21:32:22.119+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-01-02T21:38:13.646+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T21:38:13.662+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T21:38:13.663+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-02T21:38:13.705+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): print_success_msg> on 2024-01-01 00:00:00+00:00
+[2024-01-02T21:38:13.713+0000] {standard_task_runner.py:57} INFO - Started process 2081 to run task
+[2024-01-02T21:38:13.719+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'print_success_msg', 'scheduled__2024-01-01T00:00:00+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgress_operator2.py', '--cfg-path', '/tmp/tmpd9c9fj1y']
+[2024-01-02T21:38:13.725+0000] {standard_task_runner.py:85} INFO - Job 40: Subtask print_success_msg
+[2024-01-02T21:38:13.817+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [running]> on host 2590655a4ba7
+[2024-01-02T21:38:13.963+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion' AIRFLOW_CTX_TASK_ID='print_success_msg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-01T00:00:00+00:00'
+[2024-01-02T21:38:13.965+0000] {python.py:194} INFO - Done. Returned value was: Succesfully inserted data to booking_record table
+[2024-01-02T21:38:14.275+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion, task_id=print_success_msg, execution_date=20240101T000000, start_date=20240102T213813, end_date=20240102T213814
+[2024-01-02T21:38:14.334+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-02T21:38:14.363+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-01-02T21:44:23.355+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T21:44:23.403+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T21:44:23.404+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-02T21:44:23.457+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): print_success_msg> on 2024-01-01 00:00:00+00:00
+[2024-01-02T21:44:23.465+0000] {standard_task_runner.py:57} INFO - Started process 2361 to run task
+[2024-01-02T21:44:23.469+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'print_success_msg', 'scheduled__2024-01-01T00:00:00+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgress_operator2.py', '--cfg-path', '/tmp/tmp79ded7o8']
+[2024-01-02T21:44:23.473+0000] {standard_task_runner.py:85} INFO - Job 43: Subtask print_success_msg
+[2024-01-02T21:44:23.574+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [running]> on host 2590655a4ba7
+[2024-01-02T21:44:23.782+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion' AIRFLOW_CTX_TASK_ID='print_success_msg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-01T00:00:00+00:00'
+[2024-01-02T21:44:23.784+0000] {python.py:194} INFO - Done. Returned value was: Succesfully inserted data to booking_record table
+[2024-01-02T21:44:24.185+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion, task_id=print_success_msg, execution_date=20240101T000000, start_date=20240102T214423, end_date=20240102T214424
+[2024-01-02T21:44:24.303+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-02T21:44:24.384+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-01-02T22:01:40.896+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T22:01:40.946+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T22:01:40.947+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-02T22:01:41.031+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): print_success_msg> on 2024-01-01 00:00:00+00:00
+[2024-01-02T22:01:41.039+0000] {standard_task_runner.py:57} INFO - Started process 3029 to run task
+[2024-01-02T22:01:41.044+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'print_success_msg', 'scheduled__2024-01-01T00:00:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgress_operator2.py', '--cfg-path', '/tmp/tmp1xqzb939']
+[2024-01-02T22:01:41.048+0000] {standard_task_runner.py:85} INFO - Job 46: Subtask print_success_msg
+[2024-01-02T22:01:41.236+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [running]> on host 2590655a4ba7
+[2024-01-02T22:01:41.500+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion' AIRFLOW_CTX_TASK_ID='print_success_msg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-01T00:00:00+00:00'
+[2024-01-02T22:01:41.503+0000] {python.py:194} INFO - Done. Returned value was: Succesfully inserted data to booking_record table
+[2024-01-02T22:01:41.818+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion, task_id=print_success_msg, execution_date=20240101T000000, start_date=20240102T220140, end_date=20240102T220141
+[2024-01-02T22:01:41.940+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-02T22:01:42.044+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-01-02T22:42:56.874+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T22:42:56.910+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2024-01-02T22:42:56.911+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-01-02T22:42:56.963+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): print_success_msg> on 2024-01-01 00:00:00+00:00
+[2024-01-02T22:42:56.974+0000] {standard_task_runner.py:57} INFO - Started process 4732 to run task
+[2024-01-02T22:42:56.980+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'print_success_msg', 'scheduled__2024-01-01T00:00:00+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgress_operator2.py', '--cfg-path', '/tmp/tmpdkez8dd9']
+[2024-01-02T22:42:56.985+0000] {standard_task_runner.py:85} INFO - Job 58: Subtask print_success_msg
+[2024-01-02T22:42:57.097+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion.print_success_msg scheduled__2024-01-01T00:00:00+00:00 [running]> on host 2590655a4ba7
+[2024-01-02T22:42:57.260+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion' AIRFLOW_CTX_TASK_ID='print_success_msg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-01T00:00:00+00:00'
+[2024-01-02T22:42:57.263+0000] {python.py:194} INFO - Done. Returned value was: Succesfully inserted data to booking_record table
+[2024-01-02T22:42:57.696+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=booking_ingestion, task_id=print_success_msg, execution_date=20240101T000000, start_date=20240102T224256, end_date=20240102T224257
+[2024-01-02T22:42:57.837+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-02T22:42:57.865+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

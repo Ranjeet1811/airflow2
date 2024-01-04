@@ -1,0 +1,140 @@
+[2023-12-28T12:40:43.763+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T12:40:43.776+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T12:40:43.777+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 6
+[2023-12-28T12:40:43.855+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-12-27 00:00:00+00:00
+[2023-12-28T12:40:43.864+0000] {standard_task_runner.py:57} INFO - Started process 275 to run task
+[2023-12-28T12:40:43.868+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v03', 'create_postgres_table', 'scheduled__2023-12-27T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmpxlifib8p']
+[2023-12-28T12:40:43.872+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask create_postgres_table
+[2023-12-28T12:40:44.060+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [running]> on host 9b8290fc3c0d
+[2023-12-28T12:40:44.792+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v03' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-27T00:00:00+00:00'
+[2023-12-28T12:40:44.793+0000] {sql.py:274} INFO - Executing: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    
+[2023-12-28T12:40:44.813+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 275, in execute
+    hook = self.get_db_hook()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 186, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.8/functools.py", line 967, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 148, in _hook
+    conn = BaseHook.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 477, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_localhost` isn't defined
+[2023-12-28T12:40:44.818+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_with_postgres_operator_v03, task_id=create_postgres_table, execution_date=20231227T000000, start_date=20231228T124043, end_date=20231228T124044
+[2023-12-28T12:40:44.980+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3 for task create_postgres_table (The conn_id `postgres_localhost` isn't defined; 275)
+[2023-12-28T12:40:45.007+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-28T12:40:45.049+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-12-28T12:44:19.293+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T12:44:19.314+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T12:44:19.315+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 6
+[2023-12-28T12:44:19.356+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-12-27 00:00:00+00:00
+[2023-12-28T12:44:19.362+0000] {standard_task_runner.py:57} INFO - Started process 379 to run task
+[2023-12-28T12:44:19.367+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v03', 'create_postgres_table', 'scheduled__2023-12-27T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmpw8f3lhvs']
+[2023-12-28T12:44:19.370+0000] {standard_task_runner.py:85} INFO - Job 4: Subtask create_postgres_table
+[2023-12-28T12:44:19.450+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [running]> on host 9b8290fc3c0d
+[2023-12-28T12:44:19.609+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v03' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-27T00:00:00+00:00'
+[2023-12-28T12:44:19.612+0000] {sql.py:274} INFO - Executing: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    
+[2023-12-28T12:44:19.631+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-28T12:44:19.937+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-28T12:44:20.213+0000] {sql.py:418} INFO - Running statement: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    , parameters: None
+[2023-12-28T12:44:20.507+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v03, task_id=create_postgres_table, execution_date=20231227T000000, start_date=20231228T124419, end_date=20231228T124420
+[2023-12-28T12:44:20.588+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-28T12:44:20.647+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2023-12-28T12:48:19.631+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T12:48:19.671+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T12:48:19.672+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 6
+[2023-12-28T12:48:19.813+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-12-27 00:00:00+00:00
+[2023-12-28T12:48:19.823+0000] {standard_task_runner.py:57} INFO - Started process 500 to run task
+[2023-12-28T12:48:19.828+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v03', 'create_postgres_table', 'scheduled__2023-12-27T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmpuf2kfrox']
+[2023-12-28T12:48:19.833+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask create_postgres_table
+[2023-12-28T12:48:20.057+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [running]> on host 9b8290fc3c0d
+[2023-12-28T12:48:20.284+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v03' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-27T00:00:00+00:00'
+[2023-12-28T12:48:20.287+0000] {sql.py:274} INFO - Executing: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    
+[2023-12-28T12:48:20.300+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-28T12:48:20.504+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-28T12:48:20.520+0000] {sql.py:418} INFO - Running statement: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    , parameters: None
+[2023-12-28T12:48:20.540+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v03, task_id=create_postgres_table, execution_date=20231227T000000, start_date=20231228T124819, end_date=20231228T124820
+[2023-12-28T12:48:20.646+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-28T12:48:20.670+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2023-12-28T13:07:04.454+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T13:07:04.495+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [queued]>
+[2023-12-28T13:07:04.496+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 6
+[2023-12-28T13:07:04.562+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): create_postgres_table> on 2023-12-27 00:00:00+00:00
+[2023-12-28T13:07:04.570+0000] {standard_task_runner.py:57} INFO - Started process 991 to run task
+[2023-12-28T13:07:04.575+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v03', 'create_postgres_table', 'scheduled__2023-12-27T00:00:00+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmpt4ny5ouq']
+[2023-12-28T13:07:04.579+0000] {standard_task_runner.py:85} INFO - Job 8: Subtask create_postgres_table
+[2023-12-28T13:07:04.683+0000] {task_command.py:415} INFO - Running <TaskInstance: dag_with_postgres_operator_v03.create_postgres_table scheduled__2023-12-27T00:00:00+00:00 [running]> on host 9b8290fc3c0d
+[2023-12-28T13:07:04.846+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v03' AIRFLOW_CTX_TASK_ID='create_postgres_table' AIRFLOW_CTX_EXECUTION_DATE='2023-12-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-27T00:00:00+00:00'
+[2023-12-28T13:07:04.847+0000] {sql.py:274} INFO - Executing: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    
+[2023-12-28T13:07:04.864+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-28T13:07:05.200+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2023-12-28T13:07:06.547+0000] {sql.py:418} INFO - Running statement: 
+        create table if not exists booking_record(
+            client_id int,
+            booking_date date,
+            room_type varchar(250),
+            hotel_id int,
+            booking_cost decimal(10,1),
+            currency varchar(50)
+        )
+    , parameters: None
+[2023-12-28T13:07:06.724+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v03, task_id=create_postgres_table, execution_date=20231227T000000, start_date=20231228T130704, end_date=20231228T130706
+[2023-12-28T13:07:07.025+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-28T13:07:07.120+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

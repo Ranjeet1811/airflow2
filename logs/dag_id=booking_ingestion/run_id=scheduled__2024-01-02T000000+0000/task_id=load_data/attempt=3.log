@@ -1,0 +1,33 @@
+[2024-01-03T18:24:19.398+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data permission to 509
+[2024-01-03T18:24:19.399+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data'
+[2024-01-03T18:24:19.477+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data permission to 509
+[2024-01-03T18:24:19.478+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data'
+[2024-01-03T18:24:19.550+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: booking_ingestion.load_data scheduled__2024-01-02T00:00:00+00:00 [queued]>
+[2024-01-03T18:24:19.569+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: booking_ingestion.load_data scheduled__2024-01-02T00:00:00+00:00 [queued]>
+[2024-01-03T18:24:19.570+0000] {taskinstance.py:1361} INFO - Starting attempt 3 of 6
+[2024-01-03T18:24:19.617+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): load_data> on 2024-01-02 00:00:00+00:00
+[2024-01-03T18:24:19.623+0000] {standard_task_runner.py:57} INFO - Started process 1291 to run task
+[2024-01-03T18:24:19.629+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'load_data', 'scheduled__2024-01-02T00:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmpw4q4ut8o']
+[2024-01-03T18:24:19.632+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask load_data
+[2024-01-03T18:24:19.712+0000] {logging_mixin.py:151} INFO - Changing /opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data permission to 509
+[2024-01-03T18:24:19.713+0000] {logging_mixin.py:151} INFO - Failed to change /opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data permission to 509: [Errno 1] Operation not permitted: '/opt/***/logs/dag_id=booking_ingestion/run_id=scheduled__2024-01-02T00:00:00+00:00/task_id=load_data'
+[2024-01-03T18:24:19.715+0000] {task_command.py:415} INFO - Running <TaskInstance: booking_ingestion.load_data scheduled__2024-01-02T00:00:00+00:00 [running]> on host 7bf68de21308
+[2024-01-03T18:24:20.120+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='booking_ingestion' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-01-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-02T00:00:00+00:00'
+[2024-01-03T18:24:20.146+0000] {base.py:73} INFO - Using connection ID 'postgres_localhost' for task execution.
+[2024-01-03T18:24:20.195+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag_with_postgres_operator.py", line 93, in load_data
+    cursor.execute(insert_data_query,tuple(row.values))
+psycopg2.errors.NumericValueOutOfRange: integer out of range
+
+[2024-01-03T18:24:20.212+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=booking_ingestion, task_id=load_data, execution_date=20240102T000000, start_date=20240103T182419, end_date=20240103T182420
+[2024-01-03T18:24:20.247+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 15 for task load_data (integer out of range
+; 1291)
+[2024-01-03T18:24:20.284+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-01-03T18:24:20.319+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
