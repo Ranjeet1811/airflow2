@@ -15,7 +15,7 @@ dag_path = os.getcwd()
 # initializing the default arguments that we'll pass to our DAG
 default_args = {
     'owner': 'airflow',
-    'retries':5,
+    'retries':1,
     'retry_delay':timedelta(minutes=5) 
 }
 
