@@ -30,7 +30,7 @@ import os
 default_args = {
     'owner': 'airflow',
     'retries':1,
-    'retry_delay':timedelta(minutes=5) 
+    'retry_delay':timedelta(minutes=1) 
 }
 
 # Establishing connection to PostgreSQL
@@ -49,9 +49,9 @@ cursor = conn.cursor()
 def booking_ingestion():
     @task
     def transform_data():
-        booking = pd.read_csv("/opt/airflow/dags/repo/dags/booking.csv", low_memory=False)
-        client = pd.read_csv("/opt/airflow/dags/repo/dags/client.csv", low_memory=False)        
-        hotel = pd.read_csv("/opt/airflow/dags/repo/dags/hotel.csv", low_memory=False)
+        booking = pd.read_csv("/opt/airflow/dags/repo/dags/raw_data/booking.csv", low_memory=False)
+        client = pd.read_csv("/opt/airflow/dags/repo/dags/raw_data/client.csv", low_memory=False)        
+        hotel = pd.read_csv("/opt/airflow/dags/repo/dags/raw_data/hotel.csv", low_memory=False)
         print(booking)
         print(client)
         print(hotel)
@@ -75,7 +75,7 @@ def booking_ingestion():
         # remove unnecessary columns
         data = data.drop(['address'], axis=1)
 
-        data.to_csv("/opt/airflow/dags/repo/dags/processed_data.csv", index=False)
+        data.to_csv("/opt/airflow/dags/repo/dags/processed_data/processed_data.csv", index=False)
 
     @task
     def create_table():
@@ -100,7 +100,7 @@ def booking_ingestion():
     @task
     def load_data():
         # data = pd.read_csv("f{dag_path}/processed_data/processed_data.csv")
-        data = pd.read_csv("/opt/airflow/dags/repo/dags/processed_data.csv",low_memory=False)
+        data = pd.read_csv("/opt/airflow/dags/repo/dags/processed_data/processed_data.csv",low_memory=False)
         # Inserting data into the table
         for index,row in data.iterrows():
             row_dict = row.to_dict()
