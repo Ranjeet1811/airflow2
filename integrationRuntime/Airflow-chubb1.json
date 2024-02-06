@@ -1,0 +1,29 @@
+{
+	"name": "Airflow-chubb1",
+	"properties": {
+		"type": "Airflow",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "West US",
+				"computeSize": "Large",
+				"extraNodes": 1,
+				"enableAutoscale": false,
+				"clusterIP": "20.253.134.214"
+			},
+			"airflowProperties": {
+				"airflowVersion": "2.6.3",
+				"airflowWebUrl": "https://07b41035131707.westus.airflow.svc.datafactory.azure.com/login/",
+				"airflowRequirements": [
+					"apache-airflow-providers-databricks"
+				],
+				"enableAADIntegration": false,
+				"enableTriggerers": false,
+				"userName": "admin",
+				"airflowEntityReferences": [],
+				"packageProviderPath": "plugins",
+				"encryptedSecrets": [],
+				"secrets": []
+			}
+		}
+	}
+}
