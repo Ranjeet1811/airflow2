@@ -1,0 +1,28 @@
+{
+	"name": "Airflowchubbdemo",
+	"properties": {
+		"type": "Airflow",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "West US",
+				"computeSize": "Small",
+				"extraNodes": 0,
+				"enableAutoscale": false
+			},
+			"airflowProperties": {
+				"airflowVersion": "2.6.3",
+				"airflowEnvironmentVariables": null,
+				"airflowRequirements": [
+					"apache-airflow-providers-databricks"
+				],
+				"enableAADIntegration": false,
+				"enableTriggerers": false,
+				"userName": "admin",
+				"password": null,
+				"airflowEntityReferences": [],
+				"encryptedSecrets": [],
+				"secrets": null
+			}
+		}
+	}
+}
