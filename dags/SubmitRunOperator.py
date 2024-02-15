@@ -9,8 +9,8 @@ default_args = {
     'depends_on_past': False,            # DAG does not depend on past runs
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 1,                         # Number of retries if the task fails
-    'retry_delay': timedelta(minutes=5),  # Delay between retries
+    'retries': 0,                         # Number of retries if the task fails
+    'retry_delay': timedelta(minutes=1),  # Delay between retries
 }
  
  
